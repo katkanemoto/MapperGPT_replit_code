@@ -62,36 +62,45 @@ export default function HomePage() {
       setMessages((prev) => [...prev, userMessage]);
     },
     onSuccess: (data, variables) => {
-      // Add assistant response
-      const assistantMessage: ChatMessage = {
-        id: `assistant-${Date.now()}`,
-        sessionId,
-        role: "assistant",
-        content: data.reply,
-        courseContext: null,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, assistantMessage]);
-
-      // Show error toast if AI returned a fallback message
       if (data.isError) {
+        // Show error toast for AI service issues
         toast({
           title: "AI Service Issue",
-          description: "The AI assistant encountered an issue. See the message for details.",
+          description: data.reply,
           variant: "destructive",
         });
+        
+        // Add error indicator message
+        const errorMessage: ChatMessage = {
+          id: `error-${Date.now()}`,
+          sessionId,
+          role: "assistant",
+          content: data.reply,
+          courseContext: null,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, errorMessage]);
+      } else {
+        // Add successful assistant response
+        const assistantMessage: ChatMessage = {
+          id: `assistant-${Date.now()}`,
+          sessionId,
+          role: "assistant",
+          content: data.reply,
+          courseContext: null,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, assistantMessage]);
       }
 
-      // Clear pending course context after successful send
+      // Clear pending course context after response
       setPendingCourseContext(null);
 
-      // Remove course from selected list after a delay (visual feedback)
+      // Remove course from selected list after response is complete
       if (variables.courseContext) {
-        setTimeout(() => {
-          setSelectedCourseIds((prev) =>
-            prev.filter((id) => id !== variables.courseContext!.id)
-          );
-        }, 2000);
+        setSelectedCourseIds((prev) =>
+          prev.filter((id) => id !== variables.courseContext!.id)
+        );
       }
 
       // Invalidate chat history
@@ -121,16 +130,19 @@ export default function HomePage() {
   });
 
   const handleCourseClick = (course: Course) => {
-    // Always add to selected courses (allow re-clicking)
-    if (!selectedCourseIds.includes(course.id)) {
-      setSelectedCourseIds((prev) => [...prev, course.id]);
-    } else {
-      // If already selected, briefly remove and re-add for visual feedback
-      setSelectedCourseIds((prev) => prev.filter((id) => id !== course.id));
-      setTimeout(() => {
-        setSelectedCourseIds((prev) => [...prev, course.id]);
-      }, 50);
-    }
+    // Add to selected courses
+    setSelectedCourseIds((prev) => {
+      // If already selected, remove and re-add for visual feedback
+      if (prev.includes(course.id)) {
+        const filtered = prev.filter((id) => id !== course.id);
+        // Re-add after a brief moment
+        setTimeout(() => {
+          setSelectedCourseIds((current) => [...current, course.id]);
+        }, 50);
+        return filtered;
+      }
+      return [...prev, course.id];
+    });
 
     // Set as pending context
     setPendingCourseContext(course);

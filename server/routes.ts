@@ -103,13 +103,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Check if response is an error/fallback message
       const isErrorResponse = aiResponse.startsWith("I apologize");
 
-      // Save assistant message
-      await storage.createChatMessage({
-        sessionId,
-        role: "assistant",
-        content: aiResponse,
-        courseContext: null,
-      });
+      // Only save assistant message if it's not an error
+      if (!isErrorResponse) {
+        await storage.createChatMessage({
+          sessionId,
+          role: "assistant",
+          content: aiResponse,
+          courseContext: null,
+        });
+      }
 
       res.json({ reply: aiResponse, isError: isErrorResponse });
     } catch (error) {
