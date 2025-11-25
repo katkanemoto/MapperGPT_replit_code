@@ -23,41 +23,41 @@ function getCourseColorClasses(requirementType: string | null, isChoice: number)
     };
   }
 
-  switch (requirementType?.toLowerCase()) {
-    case "major":
-    case "major requirement":
-    case "required course":
-      return {
-        borderColor: "border-[hsl(var(--course-major))]",
-        bgColor: "bg-[hsl(var(--course-major-bg))]",
-        textColor: "text-[hsl(var(--course-major))]",
-        badgeColor: "bg-[hsl(var(--course-major))] text-white",
-      };
-    case "general education":
-    case "ge":
-    case "general ed":
-      return {
-        borderColor: "border-[hsl(var(--course-general-ed))]",
-        bgColor: "bg-[hsl(var(--course-general-ed-bg))]",
-        textColor: "text-[hsl(var(--course-general-ed))]",
-        badgeColor: "bg-[hsl(var(--course-general-ed))] text-white",
-      };
-    case "elective":
-    case "general elective":
-      return {
-        borderColor: "border-[hsl(var(--course-elective))]",
-        bgColor: "bg-[hsl(var(--course-elective-bg))]",
-        textColor: "text-[hsl(var(--course-elective))]",
-        badgeColor: "bg-[hsl(var(--course-elective))] text-white",
-      };
-    default:
-      return {
-        borderColor: "border-[hsl(var(--course-major))]",
-        bgColor: "bg-[hsl(var(--course-major-bg))]",
-        textColor: "text-[hsl(var(--course-major))]",
-        badgeColor: "bg-[hsl(var(--course-major))] text-white",
-      };
+  const normalizedType = requirementType?.toUpperCase().replace(/\s+/g, "_") || "";
+
+  if (normalizedType.includes("MAJOR") || normalizedType.includes("CORE")) {
+    return {
+      borderColor: "border-[hsl(var(--course-major))]",
+      bgColor: "bg-[hsl(var(--course-major-bg))]",
+      textColor: "text-[hsl(var(--course-major))]",
+      badgeColor: "bg-[hsl(var(--course-major))] text-white",
+    };
   }
+
+  if (normalizedType.includes("GENERAL_EDUCATION") || normalizedType.includes("GE")) {
+    return {
+      borderColor: "border-[hsl(var(--course-general-ed))]",
+      bgColor: "bg-[hsl(var(--course-general-ed-bg))]",
+      textColor: "text-[hsl(var(--course-general-ed))]",
+      badgeColor: "bg-[hsl(var(--course-general-ed))] text-white",
+    };
+  }
+
+  if (normalizedType.includes("ELECTIVE")) {
+    return {
+      borderColor: "border-[hsl(var(--course-elective))]",
+      bgColor: "bg-[hsl(var(--course-elective-bg))]",
+      textColor: "text-[hsl(var(--course-elective))]",
+      badgeColor: "bg-[hsl(var(--course-elective))] text-white",
+    };
+  }
+
+  return {
+    borderColor: "border-[hsl(var(--course-major))]",
+    bgColor: "bg-[hsl(var(--course-major-bg))]",
+    textColor: "text-[hsl(var(--course-major))]",
+    badgeColor: "bg-[hsl(var(--course-major))] text-white",
+  };
 }
 
 export function CourseCard({ course, onClick, isInConversation }: CourseCardProps) {
@@ -66,8 +66,8 @@ export function CourseCard({ course, onClick, isInConversation }: CourseCardProp
   return (
     <div
       className={cn(
-        "relative rounded-xl border-2 p-4 cursor-pointer transition-all duration-200",
-        "hover:shadow-lg hover:scale-[1.02]",
+        "relative rounded-lg border-[3px] p-4 cursor-pointer transition-all duration-200",
+        "hover:shadow-lg hover:scale-[1.01]",
         colors.borderColor,
         colors.bgColor,
         isInConversation && "ring-2 ring-primary ring-offset-2"

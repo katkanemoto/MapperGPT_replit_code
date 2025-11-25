@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { PathwayMapper } from "@/components/PathwayMapper";
 import { ChatbotWidget } from "@/components/ChatbotWidget";
+import { CourseLegend } from "@/components/CourseLegend";
 import { useToast } from "@/hooks/use-toast";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Program, Course, ChatMessage } from "@shared/schema";
@@ -211,6 +212,8 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
+      <CourseLegend />
 
       <main className="bg-gray-50">
         <PathwayMapper
