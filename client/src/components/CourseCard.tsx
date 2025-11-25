@@ -14,15 +14,6 @@ function getCourseColorClasses(requirementType: string | null, isChoice: number)
   textColor: string;
   badgeColor: string;
 } {
-  if (isChoice === 1) {
-    return {
-      borderColor: "border-[hsl(var(--course-elective))]",
-      bgColor: "bg-[hsl(var(--course-elective-bg))]",
-      textColor: "text-[hsl(var(--course-elective))]",
-      badgeColor: "bg-[hsl(var(--course-elective))] text-white",
-    };
-  }
-
   const normalizedType = requirementType?.toUpperCase().replace(/\s+/g, "_") || "";
 
   if (normalizedType.includes("MAJOR") || normalizedType.includes("CORE")) {
@@ -44,6 +35,15 @@ function getCourseColorClasses(requirementType: string | null, isChoice: number)
   }
 
   if (normalizedType.includes("ELECTIVE")) {
+    return {
+      borderColor: "border-[hsl(var(--course-elective))]",
+      bgColor: "bg-[hsl(var(--course-elective-bg))]",
+      textColor: "text-[hsl(var(--course-elective))]",
+      badgeColor: "bg-[hsl(var(--course-elective))] text-white",
+    };
+  }
+
+  if (isChoice === 1) {
     return {
       borderColor: "border-[hsl(var(--course-elective))]",
       bgColor: "bg-[hsl(var(--course-elective-bg))]",
