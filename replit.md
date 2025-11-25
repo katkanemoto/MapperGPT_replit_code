@@ -4,6 +4,8 @@
 
 This is an educational web application that helps students navigate academic program requirements through an interactive course pathway mapper with an integrated AI-powered chatbot assistant. The application visualizes degree programs as semester-organized course layouts, showing prerequisites, course details, and total unit requirements. Students can click on courses to get personalized AI assistance about prerequisites, course content, and academic planning.
 
+**Design**: The application's visual design is modeled after Merced College's Program Mapper (merced.programmapper.com), featuring color-coded course cards (blue for major courses, amber for general education, gray for electives), professional educational aesthetics, and clear information hierarchy optimized for academic planning.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -16,7 +18,13 @@ Preferred communication style: Simple, everyday language.
 
 **UI Component System**: The application uses shadcn/ui components built on Radix UI primitives with Tailwind CSS for styling. This provides a comprehensive, accessible component library following Material Design principles adapted for educational contexts.
 
-**Design System**: Uses the "new-york" style variant of shadcn/ui with a neutral color palette. The design emphasizes clarity and information hierarchy with purposeful whitespace, making complex course data easily scannable. Typography uses the Inter font family for optimal data-heavy interface readability.
+**Design System**: Color-coded educational interface inspired by Merced College's Program Mapper. Uses shadcn/ui components with a custom color palette:
+- **Primary Blue** (HSL 209 82% 35%): Major course requirements, headers, branding
+- **Amber** (HSL 28 90% 50%): General education courses
+- **Gray** (HSL 220 9% 46%): Elective courses and choice selections
+- Typography: Inter font family for optimal readability in data-dense educational interfaces
+- Course cards: 2px colored borders with light background tints, rounded corners (rounded-xl), unit badges positioned top-right
+- Semester columns: 4-column grid layout on large screens with sticky headers showing semester name and unit totals
 
 **State Management**: 
 - React Query (@tanstack/react-query) handles server state, data fetching, and caching

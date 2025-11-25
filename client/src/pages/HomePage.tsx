@@ -42,12 +42,13 @@ export default function HomePage() {
     }: {
       message: string;
       courseContext?: Course;
-    }) => {
-      return await apiRequest("POST", "/api/chat", {
+    }): Promise<{ reply: string; isError?: boolean }> => {
+      const response = await apiRequest("POST", "/api/chat", {
         sessionId,
         message,
         courseContext,
-      }) as { reply: string; isError?: boolean };
+      });
+      return response as { reply: string; isError?: boolean };
     },
     onMutate: async ({ message, courseContext }) => {
       // Optimistically add user message
@@ -189,29 +190,29 @@ export default function HomePage() {
   const { program, courses } = programData;
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Sticky Header */}
-      <header className="sticky top-0 z-20 h-16 bg-background border-b border-border shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-semibold text-foreground" data-testid="text-program-name">
-              {program.name}
-            </h1>
-            {program.description && (
-              <p className="text-sm text-muted-foreground">{program.description}</p>
-            )}
-          </div>
-          <div className="text-right">
-            <p className="text-sm text-muted-foreground">Total Units</p>
-            <p className="text-xl font-semibold text-foreground" data-testid="text-total-units">
-              {program.totalUnits}
-            </p>
+    <div className="min-h-screen bg-gray-50">
+      <header className="sticky top-0 z-20 bg-white border-b-2 border-primary shadow-md">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-start justify-between gap-6">
+            <div className="flex-1">
+              <h1 className="text-3xl font-bold text-primary mb-2" data-testid="text-program-name">
+                {program.name}
+              </h1>
+              {program.description && (
+                <p className="text-sm text-gray-600">{program.description}</p>
+              )}
+            </div>
+            <div className="text-right bg-primary/5 rounded-lg px-6 py-3 border border-primary/20">
+              <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-1">Total Units Required</p>
+              <p className="text-3xl font-bold text-primary" data-testid="text-total-units">
+                {program.totalUnits}
+              </p>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
-      <main>
+      <main className="bg-gray-50">
         <PathwayMapper
           courses={courses}
           onCourseClick={handleCourseClick}
@@ -219,7 +220,6 @@ export default function HomePage() {
         />
       </main>
 
-      {/* Chatbot Widget */}
       <ChatbotWidget
         onSendMessage={handleSendMessage}
         messages={messages}
