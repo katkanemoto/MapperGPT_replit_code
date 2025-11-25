@@ -101,12 +101,8 @@ export default function HomePage() {
       // Clear pending course context after response
       setPendingCourseContext(null);
 
-      // Remove course from selected list after response is complete
-      if (variables.courseContext) {
-        setSelectedCourseIds((prev) =>
-          prev.filter((id) => id !== variables.courseContext!.id)
-        );
-      }
+      // Clear all selected course IDs after response is complete
+      setSelectedCourseIds([]);
 
       // Invalidate chat history
       queryClient.invalidateQueries({ queryKey: ["/api/chat/history", sessionId] });
@@ -118,12 +114,8 @@ export default function HomePage() {
       // Clear pending context on error
       setPendingCourseContext(null);
 
-      // Remove from selected courses on error
-      if (variables.courseContext) {
-        setSelectedCourseIds((prev) =>
-          prev.filter((id) => id !== variables.courseContext!.id)
-        );
-      }
+      // Clear all selected course IDs on error
+      setSelectedCourseIds([]);
 
       toast({
         title: "Error",

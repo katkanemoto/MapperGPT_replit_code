@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -39,6 +39,18 @@ export function CourseContextDialog({
   const [completedCourseIds, setCompletedCourseIds] = useState<Set<string>>(new Set());
   const [transferDestination, setTransferDestination] = useState("");
 
+  const resetDialogState = () => {
+    setHasCompletedCourse("no");
+    setCompletedCourseIds(new Set());
+    setTransferDestination("");
+  };
+
+  useEffect(() => {
+    if (open && selectedCourse) {
+      resetDialogState();
+    }
+  }, [open, selectedCourse]);
+
   const handleCourseToggle = (courseId: string) => {
     const newSet = new Set(completedCourseIds);
     if (newSet.has(courseId)) {
@@ -63,23 +75,25 @@ export function CourseContextDialog({
       transferDestination: transferDestination.trim(),
     });
 
-    setHasCompletedCourse("no");
-    setCompletedCourseIds(new Set());
-    setTransferDestination("");
     onOpenChange(false);
   };
 
   const handleCancel = () => {
-    setHasCompletedCourse("no");
-    setCompletedCourseIds(new Set());
-    setTransferDestination("");
+    resetDialogState();
     onOpenChange(false);
+  };
+
+  const handleOpenChange = (newOpen: boolean) => {
+    if (!newOpen) {
+      resetDialogState();
+    }
+    onOpenChange(newOpen);
   };
 
   if (!selectedCourse) return null;
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto" data-testid="dialog-course-context">
         <DialogHeader>
           <DialogTitle className="text-xl" data-testid="text-dialog-title">
