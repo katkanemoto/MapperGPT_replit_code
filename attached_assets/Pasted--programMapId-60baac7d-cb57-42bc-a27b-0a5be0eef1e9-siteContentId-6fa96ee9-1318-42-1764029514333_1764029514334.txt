@@ -1,0 +1,857 @@
+{
+    "programMapId": "60baac7d-cb57-42bc-a27b-0a5be0eef1e9",
+    "siteContentId": "6fa96ee9-1318-42f6-9bf7-6de522f81e8c",
+    "collegeId": "merced",
+    "programId": "Computer Science",
+    "programTitle": "Associate in Science for Transfer",
+    "programAward": "7894492b-97b2-233e-2441-1847f344030e",
+    "label": "to CSU",
+    "emphasis": null,
+    "termsToCompletion": 4,
+    "pathwayElements": [
+        {
+            "id": "ebbf7fa4-775e-4c41-ba02-5b43e2592206",
+            "name": "Computer Programming",
+            "shortDescription": "Choose a course",
+            "requirement": {
+                "requirementType": "MAJOR_CORE"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "6f2e6144-1d1c-4e59-93c4-b8b6368ec75c",
+                "name": "Choose a course",
+                "description": "Choose a course from the following",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 1,
+                    "year": 2025
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "e6646e68-5121-4c74-ba52-e7695412922d",
+            "name": "MATH-04A",
+            "shortDescription": "Calculus I",
+            "requirement": {
+                "requirementType": "MAJOR_CORE"
+            },
+            "recommendedOpportunity": {
+                "type": "COURSE",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 1,
+                    "year": 2025
+                },
+                "courseCode": "MATH-04A",
+                "courseName": "Calculus I",
+                "mappedCourseId": "9876e4da-9284-6ace-7aa2-48ae4230f328",
+                "hasBadge": false,
+                "recommended": true,
+                "minUnits": 4.0,
+                "maxUnits": 4.0,
+                "dualRequirement": "GEN",
+                "courseNotes": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "lectureHours": null,
+                "labHours": null,
+                "units": -1.0,
+                "type": "COURSE"
+            },
+            "elementAssociations": [
+                {
+                    "elementId": "e6646e68-5121-4c74-ba52-e7695412922d",
+                    "type": "REQUIREMENT_OF",
+                    "associatedElementId": "d76fa6e7-f153-4c84-b01b-0619a8ca7ec8"
+                },
+                {
+                    "elementId": "e6646e68-5121-4c74-ba52-e7695412922d",
+                    "type": "REQUIREMENT_OF",
+                    "associatedElementId": "750e14a9-916e-4572-a513-448c2dbc4795"
+                },
+                {
+                    "elementId": "e6646e68-5121-4c74-ba52-e7695412922d",
+                    "type": "REQUIREMENT_OF",
+                    "associatedElementId": "05bda110-d818-42ad-88cb-b6967823e87b"
+                }
+            ],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "3d8c9c08-6eac-4fcf-91c7-5f28c0e70333",
+            "name": "ENGL-C1000 (formerly ENGL-01A)",
+            "shortDescription": "Academic Reading and Writing",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "COURSE",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 1,
+                    "year": 2025
+                },
+                "courseCode": "ENGL-C1000 (formerly ENGL-01A)",
+                "courseName": "Academic Reading and Writing",
+                "mappedCourseId": "a7546da2-85c5-29ba-5ff0-0126585514d9",
+                "hasBadge": false,
+                "recommended": true,
+                "minUnits": 4.0,
+                "maxUnits": 4.0,
+                "dualRequirement": null,
+                "courseNotes": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "lectureHours": null,
+                "labHours": null,
+                "units": -1.0,
+                "type": "COURSE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "d8c59e1b-b83d-47c5-a1aa-6412ef5155a0",
+            "name": "Oral Communication",
+            "shortDescription": "Choose a course from Area 1C.",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "777dbbdd-676b-4b5e-94bd-a4d43951793a",
+                "name": "Choose a course from Area 1C.",
+                "description": "Choose a course from Area 1C that is either 3 semesters or 4 quarter units. Program requires at least one course.",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 1,
+                    "year": 2025
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "836ce460-9fab-401f-b80b-147187c5d7d5",
+            "name": "CPSC-39",
+            "shortDescription": "Programming Concepts and Methodology II",
+            "requirement": {
+                "requirementType": "MAJOR_CORE"
+            },
+            "recommendedOpportunity": {
+                "type": "COURSE",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 2,
+                    "year": 2026
+                },
+                "courseCode": "CPSC-39",
+                "courseName": "Programming Concepts and Methodology II",
+                "mappedCourseId": "339d80e8-a858-b7ff-a433-b7e0badd96d0",
+                "hasBadge": false,
+                "recommended": true,
+                "minUnits": 4.0,
+                "maxUnits": 4.0,
+                "dualRequirement": null,
+                "courseNotes": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "lectureHours": 54.0,
+                "labHours": 54.0,
+                "units": -1.0,
+                "type": "COURSE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "d76fa6e7-f153-4c84-b01b-0619a8ca7ec8",
+            "name": "MATH-04B",
+            "shortDescription": "Calculus II",
+            "requirement": {
+                "requirementType": "MAJOR_CORE"
+            },
+            "recommendedOpportunity": {
+                "type": "COURSE",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 2,
+                    "year": 2026
+                },
+                "courseCode": "MATH-04B",
+                "courseName": "Calculus II",
+                "mappedCourseId": "c4475627-1147-c215-cb78-2b74480682e4",
+                "hasBadge": false,
+                "recommended": true,
+                "minUnits": 4.0,
+                "maxUnits": 4.0,
+                "dualRequirement": null,
+                "courseNotes": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "lectureHours": null,
+                "labHours": null,
+                "units": -1.0,
+                "type": "COURSE"
+            },
+            "elementAssociations": [
+                {
+                    "elementId": "d76fa6e7-f153-4c84-b01b-0619a8ca7ec8",
+                    "type": "REQUIRES",
+                    "associatedElementId": "e6646e68-5121-4c74-ba52-e7695412922d"
+                }
+            ],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "750e14a9-916e-4572-a513-448c2dbc4795",
+            "name": "PHYS-04A",
+            "shortDescription": "Physics I",
+            "requirement": {
+                "requirementType": "MAJOR_CORE"
+            },
+            "recommendedOpportunity": {
+                "type": "COURSE",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 2,
+                    "year": 2026
+                },
+                "courseCode": "PHYS-04A",
+                "courseName": "Physics I",
+                "mappedCourseId": "1969b49c-55f5-999a-2877-e68aa1729780",
+                "hasBadge": false,
+                "recommended": true,
+                "minUnits": 4.0,
+                "maxUnits": 4.0,
+                "dualRequirement": "GEN",
+                "courseNotes": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "lectureHours": null,
+                "labHours": null,
+                "units": -1.0,
+                "type": "COURSE"
+            },
+            "elementAssociations": [
+                {
+                    "elementId": "750e14a9-916e-4572-a513-448c2dbc4795",
+                    "type": "REQUIRES",
+                    "associatedElementId": "e6646e68-5121-4c74-ba52-e7695412922d"
+                }
+            ],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "763bcb53-c2d2-4018-bab4-39f13be56633",
+            "name": "Critical Thinking and Composition",
+            "shortDescription": "Choose a course from Area 1B.",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "ad7c6214-8f88-45e5-b878-79c3aee53ff5",
+                "name": "Choose a course from Area 1B.",
+                "description": "Choose a course from Area 1B that is either 3 semesters or 4 quarter units. Program requires at least one course.",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 2,
+                    "year": 2026
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "bd49ef17-415b-4211-b24a-3b0d8007e64a",
+            "name": "CPSC-42",
+            "shortDescription": "Computer Architecture and Organization",
+            "requirement": {
+                "requirementType": "MAJOR_CORE"
+            },
+            "recommendedOpportunity": {
+                "type": "COURSE",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 3,
+                    "year": 2026
+                },
+                "courseCode": "CPSC-42",
+                "courseName": "Computer Architecture and Organization",
+                "mappedCourseId": "ccf3df06-8747-8a2a-9076-9cc5e882fcdb",
+                "hasBadge": false,
+                "recommended": true,
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "courseNotes": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "lectureHours": 36.0,
+                "labHours": 54.0,
+                "units": -1.0,
+                "type": "COURSE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "7cedc335-935a-4a72-b221-5aac6c495da7",
+            "name": "PHYS-04B or CHEM-04A",
+            "shortDescription": "Choose a course",
+            "requirement": {
+                "requirementType": "MAJOR_CORE"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "e3dd9a87-27d1-4f62-8a2b-5526cc52cd1f",
+                "name": "Choose a course",
+                "description": "Choose a course from the following",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 3,
+                    "year": 2026
+                },
+                "minUnits": 4.0,
+                "maxUnits": 4.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "daec5b48-2537-4feb-8f2b-9d7792b0b5f4",
+            "name": "Arts",
+            "shortDescription": "Choose a course from Area 3A.",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "7beaeb52-a4ec-4026-8845-2e14cde188d6",
+                "name": "Choose a course from Area 3A.",
+                "description": "Choose a course from Area 3A that is either 3 semesters or 4 quarter units. Program requires at least one course from Area 3A.",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 3,
+                    "year": 2026
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "2c138a49-82df-40a2-927b-765120d75ae9",
+            "name": "Humanities",
+            "shortDescription": "Choose a course from Area 3B.",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "91de0d7d-b15c-43e9-8e89-1e827245971c",
+                "name": "Choose a course from Area 3B.",
+                "description": "Choose a course from Area 3B that is either 3 semesters or 4 quarter units. Program requires at least one course from Area 3B.",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 3,
+                    "year": 2026
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "9a73c924-32c1-4d63-8012-ad08bb472596",
+            "name": "Social and Behavioral Sciences",
+            "shortDescription": "Choose a course from Area 4.",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "7bd9366a-f29f-4f26-a180-1728d78dd836",
+                "name": "Choose a course from Area 4.",
+                "description": "Choose a course from Area 4. Program requires at least two courses in at least two different subject areas totaling either 6 semesters or 8 quarter units.",
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 3,
+                    "year": 2026
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "05bda110-d818-42ad-88cb-b6967823e87b",
+            "name": "CPSC-07",
+            "shortDescription": "Discrete Structures",
+            "requirement": {
+                "requirementType": "MAJOR_CORE"
+            },
+            "recommendedOpportunity": {
+                "type": "COURSE",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 4,
+                    "year": 2027
+                },
+                "courseCode": "CPSC-07",
+                "courseName": "Discrete Structures",
+                "mappedCourseId": "ebe85a2a-38f0-d1e0-0c7e-1f88ad3b73b4",
+                "hasBadge": false,
+                "recommended": true,
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "courseNotes": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "lectureHours": 45.0,
+                "labHours": 27.0,
+                "units": -1.0,
+                "type": "COURSE"
+            },
+            "elementAssociations": [
+                {
+                    "elementId": "05bda110-d818-42ad-88cb-b6967823e87b",
+                    "type": "REQUIRES",
+                    "associatedElementId": "e6646e68-5121-4c74-ba52-e7695412922d"
+                }
+            ],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "d834514e-8298-41ae-b408-fe0562c9bf87",
+            "name": "Biological Sciences",
+            "shortDescription": "Choose a course from Area 5B.",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "1321271a-7b60-43e5-bef7-12f8d07776cd",
+                "name": "Choose a course from Area 5B.",
+                "description": "Choose a course from Area 5B that is either 3 semesters or 4 quarter units. Program requires at least one course from Area 5B.",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 4,
+                    "year": 2027
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "8902ab75-267c-425c-a840-de8bf1929c03",
+            "name": "Social and Behavioral Sciences",
+            "shortDescription": "Choose a course from Area 4.",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "eb0870b9-9828-4d42-b6d8-f22eb7e1f5f8",
+                "name": "Choose a course from Area 4.",
+                "description": "Choose a course from Area 4. Program requires at least two courses in at least two different subject areas totaling either 6 semesters or 8 quarter units.",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 4,
+                    "year": 2027
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "f327744e-7cc0-4639-9725-ba778ccaaf50",
+            "name": "Ethnic Studies",
+            "shortDescription": "Choose a course from Area 6.",
+            "requirement": {
+                "requirementType": "GENERAL_EDUCATION"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "70ee4f58-bfe7-4678-abd1-2e4e35091b0a",
+                "name": "Choose a course from Area 6.",
+                "description": "Choose a course from Area 6 that is either 3 semesters or 4 quarter units. This course must be in ethnic studies or in a similar field provided that the course is cross-listed with ethnic studies.",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 4,
+                    "year": 2027
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        },
+        {
+            "id": "fe7c9715-0897-4994-8a5e-f3e3818efc21",
+            "name": "CSU TRANSFERRABLE COURSE",
+            "shortDescription": "Choose a course",
+            "requirement": {
+                "requirementType": "ELECTIVE"
+            },
+            "recommendedOpportunity": {
+                "type": "CHOICE",
+                "masterRecordId": "679b88b6-5057-422b-9f51-4643cb8294dc",
+                "name": "Choose a course",
+                "description": "Choose one of the following",
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 4,
+                    "year": 2027
+                },
+                "minUnits": 3.0,
+                "maxUnits": 3.0,
+                "dualRequirement": null,
+                "minHours": 0.0,
+                "maxHours": 0.0,
+                "units": -1.0,
+                "type": "CHOICE"
+            },
+            "elementAssociations": [],
+            "hasPriorLearningCredit": false
+        }
+    ],
+    "layout": {
+        "type": "TERM_AND_REQUIREMENT_TYPE",
+        "termColumns": [
+            {
+                "cards": [
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "ebbf7fa4-775e-4c41-ba02-5b43e2592206",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "e6646e68-5121-4c74-ba52-e7695412922d",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "3d8c9c08-6eac-4fcf-91c7-5f28c0e70333",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "d8c59e1b-b83d-47c5-a1aa-6412ef5155a0",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    }
+                ],
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 1,
+                    "year": 2025
+                },
+                "empty": false
+            },
+            {
+                "cards": [
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "836ce460-9fab-401f-b80b-147187c5d7d5",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "d76fa6e7-f153-4c84-b01b-0619a8ca7ec8",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "750e14a9-916e-4572-a513-448c2dbc4795",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "763bcb53-c2d2-4018-bab4-39f13be56633",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    }
+                ],
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 2,
+                    "year": 2026
+                },
+                "empty": false
+            },
+            {
+                "cards": [
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "bd49ef17-415b-4211-b24a-3b0d8007e64a",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "7cedc335-935a-4a72-b221-5aac6c495da7",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "daec5b48-2537-4feb-8f2b-9d7792b0b5f4",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "2c138a49-82df-40a2-927b-765120d75ae9",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "9a73c924-32c1-4d63-8012-ad08bb472596",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    }
+                ],
+                "term": {
+                    "customLabel": "Fall",
+                    "termNumber": 3,
+                    "year": 2026
+                },
+                "empty": false
+            },
+            {
+                "cards": [
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "05bda110-d818-42ad-88cb-b6967823e87b",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    },
+                    {
+                        "type": "SPACER_CARD",
+                        "type": "SPACER_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "d834514e-8298-41ae-b408-fe0562c9bf87",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "8902ab75-267c-425c-a840-de8bf1929c03",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "f327744e-7cc0-4639-9725-ba778ccaaf50",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    },
+                    {
+                        "type": "PATHWAY_ELEMENT_CARD",
+                        "pathwayElementId": "fe7c9715-0897-4994-8a5e-f3e3818efc21",
+                        "type": "PATHWAY_ELEMENT_CARD"
+                    }
+                ],
+                "term": {
+                    "customLabel": "Spring",
+                    "termNumber": 4,
+                    "year": 2027
+                },
+                "empty": false
+            }
+        ],
+        "type": "TERM_AND_REQUIREMENT_TYPE"
+    },
+    "missingPrerequisites": [
+        {
+            "masterRecordId": "378c791c-2306-d9b1-d5f4-fae75d8cfbcc",
+            "courseCode": "CPSC-06",
+            "title": "Programming Concepts and Methodology I",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        },
+        {
+            "masterRecordId": "35449f0c-8b77-678d-ad41-e735d93623b2",
+            "courseCode": "CPSC-14",
+            "title": "C++ Programming",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        },
+        {
+            "masterRecordId": "cbc8afd3-ec46-6102-ae3a-9839867c9d94",
+            "courseCode": "ENGR-14",
+            "title": "C++ Programming",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        },
+        {
+            "masterRecordId": "378c791c-2306-d9b1-d5f4-fae75d8cfbcc",
+            "courseCode": "CPSC-06",
+            "title": "Programming Concepts and Methodology I",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        },
+        {
+            "masterRecordId": "35449f0c-8b77-678d-ad41-e735d93623b2",
+            "courseCode": "CPSC-14",
+            "title": "C++ Programming",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        },
+        {
+            "masterRecordId": "cbc8afd3-ec46-6102-ae3a-9839867c9d94",
+            "courseCode": "ENGR-14",
+            "title": "C++ Programming",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        },
+        {
+            "masterRecordId": "378c791c-2306-d9b1-d5f4-fae75d8cfbcc",
+            "courseCode": "CPSC-06",
+            "title": "Programming Concepts and Methodology I",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        },
+        {
+            "masterRecordId": "35449f0c-8b77-678d-ad41-e735d93623b2",
+            "courseCode": "CPSC-14",
+            "title": "C++ Programming",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        },
+        {
+            "masterRecordId": "cbc8afd3-ec46-6102-ae3a-9839867c9d94",
+            "courseCode": "ENGR-14",
+            "title": "C++ Programming",
+            "hasBadge": false,
+            "minUnits": 3.0,
+            "maxUnits": 3.0,
+            "courseMinUnits": -1.0,
+            "courseMaxUnits": -1.0
+        }
+    ],
+    "defaultMap": true,
+    "hideYears": false,
+    "nonCreditAward": false
+}

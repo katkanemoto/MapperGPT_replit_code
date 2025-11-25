@@ -22,6 +22,9 @@ export const courses = pgTable("courses", {
   prerequisites: text("prerequisites").array(),
   semester: text("semester").notNull(), // "Fall Year 1", "Spring Year 1", etc.
   semesterOrder: integer("semester_order").notNull(), // For sorting: 1, 2, 3, etc.
+  requirementType: text("requirement_type"), // Optional: MAJOR_CORE, GENERAL_EDUCATION, ELECTIVE
+  isChoice: integer("is_choice").default(0), // 0 or 1 for boolean (choice groups)
+  choiceDescription: text("choice_description"), // Description for choice groups
 });
 
 // Chat messages table for conversation history

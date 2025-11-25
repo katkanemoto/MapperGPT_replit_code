@@ -7,6 +7,9 @@ import {
   type InsertChatMessage,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
+import { readFileSync } from "fs";
+import { join } from "path";
+import { transformMercedProgram } from "./merced-transformer";
 
 export interface IStorage {
   // Programs
@@ -42,116 +45,48 @@ export class MemStorage implements IStorage {
     if (this.initialized) return;
     this.initialized = true;
 
-    // Create a sample program
-    const programId = randomUUID();
-    const program: Program = {
-      id: programId,
-      name: "Computer Programming - Certificate of Achievement",
-      description: "A comprehensive program covering computer science fundamentals, programming languages, and software development",
-      totalUnits: 32,
-    };
-    this.programs.set(programId, program);
+    try {
+      // Load Merced College Computer Science AS-T pathway data
+      const pathwayFilePath = join(process.cwd(), "attached_assets", "Pasted--programMapId-60baac7d-cb57-42bc-a27b-0a5be0eef1e9-siteContentId-6fa96ee9-1318-42-1764029514333_1764029514334.txt");
+      const pathwayJson = readFileSync(pathwayFilePath, "utf-8");
+      const pathwayData = JSON.parse(pathwayJson);
 
-    // Create sample courses
-    const sampleCourses: Array<Omit<Course, 'id'>> = [
-      {
-        programId,
-        code: "CS 101",
-        title: "Introduction to Computer Science",
-        units: 3,
-        description: "Fundamental concepts of computer science including problem-solving, algorithms, and programming basics",
-        prerequisites: [],
-        semester: "Fall Year 1",
-        semesterOrder: 1,
-      },
-      {
-        programId,
-        code: "MATH 120",
-        title: "College Algebra",
-        units: 4,
-        description: "Functions, equations, inequalities, and their applications",
-        prerequisites: [],
-        semester: "Fall Year 1",
-        semesterOrder: 1,
-      },
-      {
-        programId,
-        code: "CS 102",
-        title: "Programming Fundamentals",
-        units: 3,
-        description: "Introduction to programming using a high-level language with emphasis on problem-solving",
-        prerequisites: ["CS 101"],
-        semester: "Spring Year 1",
-        semesterOrder: 2,
-      },
-      {
-        programId,
-        code: "CS 110",
-        title: "Data Structures",
-        units: 4,
-        description: "Study of data structures including arrays, linked lists, stacks, queues, trees, and graphs",
-        prerequisites: ["CS 102"],
-        semester: "Spring Year 1",
-        semesterOrder: 2,
-      },
-      {
-        programId,
-        code: "CS 201",
-        title: "Object-Oriented Programming",
-        units: 3,
-        description: "Principles of object-oriented design and programming using modern programming languages",
-        prerequisites: ["CS 110"],
-        semester: "Fall Year 2",
-        semesterOrder: 3,
-      },
-      {
-        programId,
-        code: "CS 205",
-        title: "Web Development",
-        units: 3,
-        description: "Front-end and back-end web development technologies including HTML, CSS, JavaScript, and server-side programming",
-        prerequisites: ["CS 102"],
-        semester: "Fall Year 2",
-        semesterOrder: 3,
-      },
-      {
-        programId,
-        code: "CS 210",
-        title: "Database Systems",
-        units: 3,
-        description: "Database design, SQL, normalization, and database management systems",
-        prerequisites: ["CS 110"],
-        semester: "Spring Year 2",
-        semesterOrder: 4,
-      },
-      {
-        programId,
-        code: "CS 220",
-        title: "Software Engineering",
-        units: 4,
-        description: "Software development lifecycle, design patterns, testing, and project management",
-        prerequisites: ["CS 201"],
-        semester: "Spring Year 2",
-        semesterOrder: 4,
-      },
-      {
-        programId,
-        code: "COMM 101",
-        title: "Technical Communication",
-        units: 3,
-        description: "Writing and presentation skills for technical professionals",
-        prerequisites: [],
-        semester: "Spring Year 2",
-        semesterOrder: 4,
-      },
-    ];
+      // Transform Merced data to our format
+      const { program: programData, courses: coursesData } = transformMercedProgram(pathwayData);
 
-    // Add courses to storage
-    sampleCourses.forEach(courseData => {
-      const id = randomUUID();
-      const course: Course = { id, ...courseData };
-      this.courses.set(id, course);
-    });
+      // Create program
+      const programId = randomUUID();
+      const program: Program = {
+        id: programId,
+        name: programData.name,
+        description: programData.description ?? null,
+        totalUnits: programData.totalUnits ?? 0,
+      };
+      this.programs.set(programId, program);
+
+      // Create courses with the program ID
+      coursesData.forEach(courseData => {
+        const id = randomUUID();
+        const course: Course = {
+          id,
+          programId,
+          code: courseData.code,
+          title: courseData.title,
+          units: courseData.units,
+          description: courseData.description ?? null,
+          prerequisites: courseData.prerequisites ?? null,
+          semester: courseData.semester,
+          semesterOrder: courseData.semesterOrder,
+          requirementType: courseData.requirementType ?? null,
+          isChoice: courseData.isChoice ?? 0,
+          choiceDescription: courseData.choiceDescription ?? null,
+        };
+        this.courses.set(id, course);
+      });
+    } catch (error) {
+      console.error("Failed to load Merced pathway data:", error);
+      // Fallback to empty data
+    }
   }
 
   // Programs
@@ -200,6 +135,9 @@ export class MemStorage implements IStorage {
       prerequisites: insertCourse.prerequisites ?? null,
       semester: insertCourse.semester,
       semesterOrder: insertCourse.semesterOrder,
+      requirementType: insertCourse.requirementType ?? null,
+      isChoice: insertCourse.isChoice ?? 0,
+      choiceDescription: insertCourse.choiceDescription ?? null,
     };
     this.courses.set(id, course);
     return course;

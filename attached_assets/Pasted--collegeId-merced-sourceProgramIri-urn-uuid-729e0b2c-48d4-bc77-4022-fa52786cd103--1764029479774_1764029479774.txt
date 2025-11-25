@@ -1,0 +1,69 @@
+{
+    "collegeId": "merced",
+    "sourceProgramIri": "urn:uuid:729e0b2c-48d4-bc77-4022-fa52786cd103",
+    "title": "Computer Science",
+    "awardTitle": "Associate in Science for Transfer",
+    "description": "The Associate in Science in Computer Science for transfer is designed for students pursuing degrees in Computer Science or Computer Engineering. Upon completion of the transfer associate degree, the student is eligible for transfer with junior standing into the California State University (CSU) system. Students will be given priority consideration when applying to a particular program that is similar to the student's community college area of emphasis.   For an Associate in Science in Computer Science for Transfer (AS-T), students must complete the following: (1) 60 semester CSU-transferable units. (2) the California General Education Transfer Curriculum (Cal-GETC) pattern. (3) a minimum of 18 semester units in the major or area of emphasis as determined by the community college district. (4) obtainment of a minimum grade point average (GPA) of 2.0. (5) earn a grade of C (or P) or better in all courses required for the major or area of emphasis.  Note: Students are not required to complete any additional local graduation requirements for the AS-T (e.g., PE and Computer and Information Literacy courses).",
+    "additionalRequirements": null,
+    "youtubeVideoId": "fsWMoeEUXFw",
+    "learningOutcomes": [
+        "Demonstrate the ability to understand the ethical, mathematical, and physical concepts that under lie computer science.",
+        "Demonstrate the ability to understand the different levels of abstraction that comprise computer science.",
+        "Create efficient, working computer programs that use fundamental programming constructs to solve real-life problems."
+    ],
+    "careerStandardOccupationalCodes": [
+        "15-2041",
+        "25-1199",
+        "15-1251",
+        "15-2098",
+        "25-1021",
+        "11-3021",
+        "11-9121",
+        "13-1111",
+        "15-1245",
+        "15-1256",
+        "15-1212",
+        "15-1257",
+        "15-1241",
+        "15-1231",
+        "15-1221",
+        "15-1211",
+        "15-1244",
+        "15-1299"
+    ],
+    "badgeClass": null,
+    "pathways": [
+        {
+            "collegeId": "merced",
+            "siteContentId": "6fa96ee9-1318-42f6-9bf7-6de522f81e8c",
+            "programId": "7894492b-97b2-233e-2441-1847f344030e",
+            "label": "to CSU",
+            "programMapId": "60baac7d-cb57-42bc-a27b-0a5be0eef1e9",
+            "prior": null,
+            "next": {
+                "mapId": null,
+                "label": null,
+                "emphasis": null,
+                "programId": null,
+                "linkedProgramTitle": null,
+                "linkedProgramAward": null,
+                "linkedTransferCollegeId": null,
+                "linkedMapType": "CSU_GENERIC"
+            },
+            "defaultPathway": true,
+            "priorPathwayYearOffset": 0,
+            "pathwayTermOffset": 0,
+            "pathwayYearOffset": 0,
+            "nextPathwayTermOffset": 0,
+            "nextPathwayYearOffset": 0
+        }
+    ],
+    "catalogUrl": "https://catalog.mccd.edu/",
+    "programId": "7894492b-97b2-233e-2441-1847f344030e",
+    "siteContentId": "6fa96ee9-1318-42f6-9bf7-6de522f81e8c",
+    "linkedPathway": true,
+    "advisingLink": "https://www.mccd.edu/resources/counseling/index.html",
+    "registrationLink": null,
+    "controlNumber": "31816",
+    "additionalInfoLink": null
+}

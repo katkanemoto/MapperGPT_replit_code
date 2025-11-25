@@ -1,0 +1,189 @@
+{
+    "careers": [
+        {
+            "title": "Computer Network Architects",
+            "lowSalaryK": 106,
+            "averageSalaryK": 153,
+            "highSalaryK": 187,
+            "jobGrowthPct": 3.5,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1241",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Computer Network Support Specialists",
+            "lowSalaryK": 60,
+            "averageSalaryK": 83,
+            "highSalaryK": 97,
+            "jobGrowthPct": 7.0,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1231",
+            "educationLevel": "Associate's degree"
+        },
+        {
+            "title": "Computer Occupations, All Other",
+            "lowSalaryK": 75,
+            "averageSalaryK": 126,
+            "highSalaryK": 166,
+            "jobGrowthPct": 9.7,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1299",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Computer Programmers",
+            "lowSalaryK": 82,
+            "averageSalaryK": 124,
+            "highSalaryK": 150,
+            "jobGrowthPct": -11.2,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1251",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Computer Science Teachers, Postsecondary",
+            "lowSalaryK": 107,
+            "averageSalaryK": 152,
+            "highSalaryK": 182,
+            "jobGrowthPct": 5.3,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "25-1021",
+            "educationLevel": "Doctoral or professional degree"
+        },
+        {
+            "title": "Computer Systems Analysts",
+            "lowSalaryK": 96,
+            "averageSalaryK": 129,
+            "highSalaryK": 157,
+            "jobGrowthPct": 9.6,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1211",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Computer and Information Research Scientists",
+            "lowSalaryK": 137,
+            "averageSalaryK": 187,
+            "highSalaryK": 213,
+            "jobGrowthPct": 22.7,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1221",
+            "educationLevel": "Master's degree"
+        },
+        {
+            "title": "Computer and Information Systems Managers",
+            "lowSalaryK": 166,
+            "averageSalaryK": 217,
+            "highSalaryK": 240,
+            "jobGrowthPct": 15.4,
+            "highSalaryMaxed": true,
+            "standardOccupationalCode": "11-3021",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Data Scientists and Mathematical Science Occupations, All Other",
+            "lowSalaryK": 69,
+            "averageSalaryK": 127,
+            "highSalaryK": 198,
+            "jobGrowthPct": 31.4,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-2098",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Database Administrators and Architects",
+            "lowSalaryK": 58,
+            "averageSalaryK": 108,
+            "highSalaryK": 174,
+            "jobGrowthPct": 7.8,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1245",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Information Security Analysts",
+            "lowSalaryK": 101,
+            "averageSalaryK": 140,
+            "highSalaryK": 170,
+            "jobGrowthPct": 31.5,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1212",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Management Analysts",
+            "lowSalaryK": 76,
+            "averageSalaryK": 119,
+            "highSalaryK": 135,
+            "jobGrowthPct": 9.7,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "13-1111",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Natural Sciences Managers",
+            "lowSalaryK": 154,
+            "averageSalaryK": 208,
+            "highSalaryK": 240,
+            "jobGrowthPct": 4.8,
+            "highSalaryMaxed": true,
+            "standardOccupationalCode": "11-9121",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Network and Computer Systems Administrators",
+            "lowSalaryK": 81,
+            "averageSalaryK": 114,
+            "highSalaryK": 135,
+            "jobGrowthPct": 2.5,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1244",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Postsecondary Teachers, All Other",
+            "lowSalaryK": 50,
+            "averageSalaryK": 105,
+            "highSalaryK": 165,
+            "jobGrowthPct": 5.9,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "25-1199",
+            "educationLevel": "Doctoral or professional degree"
+        },
+        {
+            "title": "Software Developers and Software Quality Assurance Analysts and Testers",
+            "lowSalaryK": 78,
+            "averageSalaryK": 136,
+            "highSalaryK": 203,
+            "jobGrowthPct": 22.2,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1256",
+            "educationLevel": "Bachelor's degree"
+        },
+        {
+            "title": "Statisticians",
+            "lowSalaryK": 89,
+            "averageSalaryK": 129,
+            "highSalaryK": 169,
+            "jobGrowthPct": 31.6,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-2041",
+            "educationLevel": "Master's degree"
+        },
+        {
+            "title": "Web Developers and Digital Interface Designers",
+            "lowSalaryK": 46,
+            "averageSalaryK": 89,
+            "highSalaryK": 158,
+            "jobGrowthPct": 12.8,
+            "highSalaryMaxed": false,
+            "standardOccupationalCode": "15-1257",
+            "educationLevel": "Bachelor's degree"
+        }
+    ],
+    "batchLowSalaryK": 46,
+    "batchAverageSalaryK": 135,
+    "batchHighSalaryK": null,
+    "batchJobGrowthPct": 12.3,
+    "batchHighSalaryMaxed": true
+}

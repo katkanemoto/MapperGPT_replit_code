@@ -1,0 +1,133 @@
+[
+    {
+        "year": 2024,
+        "id": "0f735cbc-9e91-44cd-a5c2-f3f20bd37fd7",
+        "pathwaySummary": {
+            "collegeId": "merced",
+            "siteContentId": "0f735cbc-9e91-44cd-a5c2-f3f20bd37fd7",
+            "programId": "7894492b-97b2-233e-2441-1847f344030e",
+            "label": "to CSU",
+            "programMapId": "60baac7d-cb57-42bc-a27b-0a5be0eef1e9",
+            "prior": null,
+            "next": {
+                "mapId": null,
+                "label": null,
+                "emphasis": null,
+                "programId": null,
+                "linkedProgramTitle": null,
+                "linkedProgramAward": null,
+                "linkedTransferCollegeId": null,
+                "linkedMapType": "CSU_GENERIC"
+            },
+            "defaultPathway": true,
+            "priorPathwayYearOffset": 0,
+            "pathwayTermOffset": 0,
+            "pathwayYearOffset": 0,
+            "nextPathwayTermOffset": 0,
+            "nextPathwayYearOffset": 0
+        }
+    },
+    {
+        "year": 2023,
+        "id": "83194baf-1663-4af4-8cfa-91b548b5ba96",
+        "pathwaySummary": {
+            "collegeId": "merced",
+            "siteContentId": "83194baf-1663-4af4-8cfa-91b548b5ba96",
+            "programId": "7894492b-97b2-233e-2441-1847f344030e",
+            "label": "to CSU",
+            "programMapId": "60baac7d-cb57-42bc-a27b-0a5be0eef1e9",
+            "prior": null,
+            "next": {
+                "mapId": null,
+                "label": null,
+                "emphasis": null,
+                "programId": null,
+                "linkedProgramTitle": null,
+                "linkedProgramAward": null,
+                "linkedTransferCollegeId": null,
+                "linkedMapType": "CSU_GENERIC"
+            },
+            "defaultPathway": true,
+            "priorPathwayYearOffset": 0,
+            "pathwayTermOffset": 0,
+            "pathwayYearOffset": 0,
+            "nextPathwayTermOffset": 0,
+            "nextPathwayYearOffset": 0
+        }
+    },
+    {
+        "year": 2022,
+        "id": "706daf8b-c7ee-4ba8-911e-a7478622d3f1",
+        "pathwaySummary": {
+            "collegeId": "merced",
+            "siteContentId": "706daf8b-c7ee-4ba8-911e-a7478622d3f1",
+            "programId": "7894492b-97b2-233e-2441-1847f344030e",
+            "label": "to CSU",
+            "programMapId": "60baac7d-cb57-42bc-a27b-0a5be0eef1e9",
+            "prior": null,
+            "next": {
+                "mapId": null,
+                "label": null,
+                "emphasis": null,
+                "programId": null,
+                "linkedProgramTitle": null,
+                "linkedProgramAward": null,
+                "linkedTransferCollegeId": null,
+                "linkedMapType": "CSU_GENERIC"
+            },
+            "defaultPathway": true,
+            "priorPathwayYearOffset": 0,
+            "pathwayTermOffset": 0,
+            "pathwayYearOffset": 0,
+            "nextPathwayTermOffset": 0,
+            "nextPathwayYearOffset": 0
+        }
+    },
+    {
+        "year": 2021,
+        "id": "93243821-fb3a-408d-95cd-e58a7fe2fcd5",
+        "pathwaySummary": {
+            "collegeId": "merced",
+            "siteContentId": "93243821-fb3a-408d-95cd-e58a7fe2fcd5",
+            "programId": "7894492b-97b2-233e-2441-1847f344030e",
+            "label": "to CSU",
+            "programMapId": "60baac7d-cb57-42bc-a27b-0a5be0eef1e9",
+            "prior": null,
+            "next": {
+                "mapId": null,
+                "label": null,
+                "emphasis": null,
+                "programId": null,
+                "linkedProgramTitle": null,
+                "linkedProgramAward": null,
+                "linkedTransferCollegeId": null,
+                "linkedMapType": "CSU_GENERIC"
+            },
+            "defaultPathway": false,
+            "priorPathwayYearOffset": 0,
+            "pathwayTermOffset": 0,
+            "pathwayYearOffset": 0,
+            "nextPathwayTermOffset": 0,
+            "nextPathwayYearOffset": 0
+        }
+    },
+    {
+        "year": 2020,
+        "id": "1b156bfe-ea14-484f-a011-c2310375ca69",
+        "pathwaySummary": {
+            "collegeId": "merced",
+            "siteContentId": "1b156bfe-ea14-484f-a011-c2310375ca69",
+            "programId": "7894492b-97b2-233e-2441-1847f344030e",
+            "label": "to CSU",
+            "programMapId": "60baac7d-cb57-42bc-a27b-0a5be0eef1e9",
+            "prior": null,
+            "next": null,
+            "defaultPathway": false,
+            "priorPathwayYearOffset": 0,
+            "pathwayTermOffset": 0,
+            "pathwayYearOffset": 0,
+            "nextPathwayTermOffset": 0,
+            "nextPathwayYearOffset": 0
+        }
+    }
+]
