@@ -3,6 +3,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { PathwayMapper } from "@/components/PathwayMapper";
 import { ChatbotWidget } from "@/components/ChatbotWidget";
 import { CourseLegend } from "@/components/CourseLegend";
+import { CourseContextDialog } from "@/components/CourseContextDialog";
 import { useToast } from "@/hooks/use-toast";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Program, Course, ChatMessage } from "@shared/schema";
@@ -13,6 +14,8 @@ export default function HomePage() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [pendingCourseContext, setPendingCourseContext] = useState<Course | null>(null);
   const [selectedCourseIds, setSelectedCourseIds] = useState<string[]>([]);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedCourseForDialog, setSelectedCourseForDialog] = useState<Course | null>(null);
 
   // Fetch program data with courses
   const { data: programData, isLoading: isProgramLoading } = useQuery<{
@@ -132,34 +135,42 @@ export default function HomePage() {
   });
 
   const handleCourseClick = (course: Course) => {
-    // Add to selected courses
-    setSelectedCourseIds((prev) => {
-      // If already selected, remove and re-add for visual feedback
-      if (prev.includes(course.id)) {
-        const filtered = prev.filter((id) => id !== course.id);
-        // Re-add after a brief moment
-        setTimeout(() => {
-          setSelectedCourseIds((current) => [...current, course.id]);
-        }, 50);
-        return filtered;
-      }
-      return [...prev, course.id];
-    });
+    setSelectedCourseForDialog(course);
+    setDialogOpen(true);
+  };
 
-    // Set as pending context
-    setPendingCourseContext(course);
+  const handleDialogSubmit = (context: {
+    selectedCourse: Course;
+    hasCompletedCourse: boolean;
+    completedCourses: Course[];
+    transferDestination: string;
+  }) => {
+    const { selectedCourse, hasCompletedCourse, completedCourses, transferDestination } = context;
 
-    // Send auto-message to chatbot
-    const contextMessage = `I'd like to know more about ${course.code}: ${course.title}`;
+    const completedCoursesList = completedCourses.map(c => c.code).join(", ");
+    
+    let contextMessage = `I'd like to know more about ${selectedCourse.code}: ${selectedCourse.title}.\n\n`;
+    contextMessage += `I have ${hasCompletedCourse ? "completed" : "not completed"} this course.\n`;
+    
+    if (completedCourses.length > 0) {
+      contextMessage += `Courses I've completed: ${completedCoursesList}\n`;
+    }
+    
+    if (transferDestination) {
+      contextMessage += `I plan to transfer to: ${transferDestination}\n`;
+    }
+
+    setSelectedCourseIds([selectedCourse.id, ...completedCourses.map(c => c.id)]);
+    setPendingCourseContext(selectedCourse);
+
     sendMessageMutation.mutate({
       message: contextMessage,
-      courseContext: course,
+      courseContext: selectedCourse,
     });
 
-    // Show toast notification
     toast({
-      title: "Course sent to AI Assistant",
-      description: `${course.code} - ${course.title}`,
+      title: "Starting AI Chat",
+      description: `${selectedCourse.code} - ${selectedCourse.title}`,
     });
   };
 
@@ -228,6 +239,14 @@ export default function HomePage() {
         messages={messages}
         isLoading={sendMessageMutation.isPending}
         pendingCourseContext={pendingCourseContext}
+      />
+
+      <CourseContextDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        selectedCourse={selectedCourseForDialog}
+        allCourses={courses}
+        onSubmit={handleDialogSubmit}
       />
     </div>
   );
