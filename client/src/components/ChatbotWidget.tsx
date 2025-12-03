@@ -68,30 +68,31 @@ export function ChatbotWidget({
   };
 
   return (
-    <>
-      {/* Floating Action Button - Collapsed State */}
-      {!isOpen && (
-        <Button
-          size="icon"
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl hover:scale-105 transition-transform duration-200 z-50"
-          data-testid="button-open-chatbot"
-          aria-label="Open AI Course Assistant"
-        >
-          <MessageCircle className="h-6 w-6" />
-        </Button>
-      )}
+    <div className="fixed bottom-0 right-0 z-50 pointer-events-none">
+      <div className="relative w-screen h-screen pointer-events-none">
+        {/* Floating Action Button - Collapsed State */}
+        {!isOpen && (
+          <Button
+            size="icon"
+            onClick={() => setIsOpen(true)}
+            className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl hover:scale-105 transition-transform duration-200 pointer-events-auto"
+            data-testid="button-open-chatbot"
+            aria-label="Open AI Course Assistant"
+          >
+            <MessageCircle className="h-6 w-6" />
+          </Button>
+        )}
 
-      {/* Chatbot Panel - Expanded State */}
-      {isOpen && (
-        <div
-          className={cn(
-            "fixed bottom-6 right-6 w-96 h-[600px] bg-card border border-card-border rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50",
-            "transition-all duration-300 ease-in-out",
-            "max-md:w-[calc(100vw-3rem)] max-md:h-[calc(100vh-3rem)]"
-          )}
-          data-testid="panel-chatbot"
-        >
+        {/* Chatbot Panel - Expanded State */}
+        {isOpen && (
+          <div
+            className={cn(
+              "fixed bottom-6 right-6 w-96 h-[600px] bg-card border border-card-border rounded-2xl shadow-2xl flex flex-col overflow-hidden pointer-events-auto",
+              "transition-all duration-300 ease-in-out",
+              "max-sm:w-[calc(100vw-1.5rem)] max-sm:h-[calc(100vh-1.5rem)] max-sm:bottom-3 max-sm:right-3"
+            )}
+            data-testid="panel-chatbot"
+          >
           {/* Header */}
           <div className="flex items-center justify-between h-14 px-4 border-b border-border bg-card">
             <h2 className="text-base font-semibold" data-testid="text-chatbot-title">
@@ -201,6 +202,7 @@ export function ChatbotWidget({
           </div>
         </div>
       )}
-    </>
+      </div>
+    </div>
   );
 }
