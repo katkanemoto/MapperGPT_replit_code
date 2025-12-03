@@ -50,7 +50,7 @@ export default function HomePage() {
         message,
         courseContext,
       });
-      return response as { reply: string; isError?: boolean };
+      return response as unknown as { reply: string; isError?: boolean };
     },
     onMutate: async ({ message, courseContext }) => {
       // Optimistically add user message
