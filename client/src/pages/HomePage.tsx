@@ -3,6 +3,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { PathwayMapper } from "@/components/PathwayMapper";
 import { ChatbotWidget } from "@/components/ChatbotWidget";
 import { CourseLegend } from "@/components/CourseLegend";
+import { CourseDetailModal } from "@/components/CourseDetailModal";
 import { useToast } from "@/hooks/use-toast";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Program, Course, ChatMessage } from "@shared/schema";
@@ -14,6 +15,8 @@ export default function HomePage() {
   const [pendingCourseContext, setPendingCourseContext] = useState<Course | null>(null);
   const [selectedCourseIds, setSelectedCourseIds] = useState<string[]>([]);
   const [takenCourseIds, setTakenCourseIds] = useState<string[]>([]);
+  const [courseDetailOpen, setCourseDetailOpen] = useState(false);
+  const [selectedCourseForDetail, setSelectedCourseForDetail] = useState<Course | null>(null);
 
   // Fetch program data with courses
   const { data: programData, isLoading: isProgramLoading } = useQuery<{
@@ -125,6 +128,11 @@ export default function HomePage() {
   });
 
   const handleCourseClick = (course: Course) => {
+    setSelectedCourseForDetail(course);
+    setCourseDetailOpen(true);
+  };
+
+  const handleAskAI = (course: Course) => {
     // Build context message including taken courses
     const takenCourses = programData?.courses.filter(c => takenCourseIds.includes(c.id)) || [];
     const takenCoursesList = takenCourses.map(c => c.code).join(", ");
@@ -226,6 +234,13 @@ export default function HomePage() {
         messages={messages}
         isLoading={sendMessageMutation.isPending}
         pendingCourseContext={pendingCourseContext}
+      />
+
+      <CourseDetailModal
+        open={courseDetailOpen}
+        onOpenChange={setCourseDetailOpen}
+        course={selectedCourseForDetail}
+        onAskAI={handleAskAI}
       />
     </div>
   );
