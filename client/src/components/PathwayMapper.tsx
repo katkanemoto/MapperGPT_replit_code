@@ -5,12 +5,16 @@ interface PathwayMapperProps {
   courses: Course[];
   onCourseClick: (course: Course) => void;
   selectedCourseIds: string[];
+  takenCourseIds: string[];
+  onToggleTaken: (courseId: string, isTaken: boolean) => void;
 }
 
 export function PathwayMapper({
   courses,
   onCourseClick,
   selectedCourseIds,
+  takenCourseIds,
+  onToggleTaken,
 }: PathwayMapperProps) {
   const semesterGroups = courses.reduce((acc, course) => {
     if (!acc[course.semester]) {
@@ -58,6 +62,8 @@ export function PathwayMapper({
                     course={course}
                     onClick={onCourseClick}
                     isInConversation={selectedCourseIds.includes(course.id)}
+                    isTaken={takenCourseIds.includes(course.id)}
+                    onToggleTaken={onToggleTaken}
                   />
                 ))}
               </div>

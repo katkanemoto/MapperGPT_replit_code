@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
 import type { Course } from "@shared/schema";
 
@@ -6,6 +7,8 @@ interface CourseCardProps {
   course: Course;
   onClick: (course: Course) => void;
   isInConversation?: boolean;
+  isTaken?: boolean;
+  onToggleTaken?: (courseId: string, isTaken: boolean) => void;
 }
 
 function getCourseColorClasses(requirementType: string | null, isChoice: number): {
@@ -60,8 +63,13 @@ function getCourseColorClasses(requirementType: string | null, isChoice: number)
   };
 }
 
-export function CourseCard({ course, onClick, isInConversation }: CourseCardProps) {
+export function CourseCard({ course, onClick, isInConversation, isTaken = false, onToggleTaken }: CourseCardProps) {
   const colors = getCourseColorClasses(course.requirementType || null, course.isChoice || 0);
+
+  const handleCheckboxChange = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onToggleTaken?.(course.id, !isTaken);
+  };
 
   return (
     <div
@@ -89,6 +97,21 @@ export function CourseCard({ course, onClick, isInConversation }: CourseCardProp
         colors.badgeColor
       )} data-testid={`badge-units-${course.id}`}>
         {course.units} {course.units === 1 ? "unit" : "units"}
+      </div>
+
+      {/* Checkbox - Bottom Right */}
+      <div
+        className="absolute bottom-3 right-3 flex items-center gap-2"
+        onClick={handleCheckboxChange}
+        data-testid={`checkbox-taken-${course.id}`}
+      >
+        <Checkbox 
+          checked={isTaken} 
+          onChange={() => {}}
+          className="cursor-pointer"
+          data-testid={`input-checkbox-taken-${course.id}`}
+        />
+        <span className="text-xs text-gray-600 font-medium whitespace-nowrap">Taken</span>
       </div>
 
       {/* Course Content */}

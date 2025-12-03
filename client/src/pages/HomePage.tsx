@@ -3,7 +3,6 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { PathwayMapper } from "@/components/PathwayMapper";
 import { ChatbotWidget } from "@/components/ChatbotWidget";
 import { CourseLegend } from "@/components/CourseLegend";
-import { CourseContextDialog } from "@/components/CourseContextDialog";
 import { useToast } from "@/hooks/use-toast";
 import { queryClient, apiRequest } from "@/lib/queryClient";
 import type { Program, Course, ChatMessage } from "@shared/schema";
@@ -14,8 +13,7 @@ export default function HomePage() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [pendingCourseContext, setPendingCourseContext] = useState<Course | null>(null);
   const [selectedCourseIds, setSelectedCourseIds] = useState<string[]>([]);
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedCourseForDialog, setSelectedCourseForDialog] = useState<Course | null>(null);
+  const [takenCourseIds, setTakenCourseIds] = useState<string[]>([]);
 
   // Fetch program data with courses
   const { data: programData, isLoading: isProgramLoading } = useQuery<{
@@ -127,42 +125,37 @@ export default function HomePage() {
   });
 
   const handleCourseClick = (course: Course) => {
-    setSelectedCourseForDialog(course);
-    setDialogOpen(true);
-  };
-
-  const handleDialogSubmit = (context: {
-    selectedCourse: Course;
-    hasCompletedCourse: boolean;
-    completedCourses: Course[];
-    transferDestination: string;
-  }) => {
-    const { selectedCourse, hasCompletedCourse, completedCourses, transferDestination } = context;
-
-    const completedCoursesList = completedCourses.map(c => c.code).join(", ");
+    // Build context message including taken courses
+    const takenCourses = programData?.courses.filter(c => takenCourseIds.includes(c.id)) || [];
+    const takenCoursesList = takenCourses.map(c => c.code).join(", ");
     
-    let contextMessage = `I'd like to know more about ${selectedCourse.code}: ${selectedCourse.title}.\n\n`;
-    contextMessage += `I have ${hasCompletedCourse ? "completed" : "not completed"} this course.\n`;
+    let contextMessage = `I'd like to know more about ${course.code}: ${course.title}.`;
     
-    if (completedCourses.length > 0) {
-      contextMessage += `Courses I've completed: ${completedCoursesList}\n`;
-    }
-    
-    if (transferDestination) {
-      contextMessage += `I plan to transfer to: ${transferDestination}\n`;
+    if (takenCoursesList) {
+      contextMessage += `\n\nCourses I've taken: ${takenCoursesList}`;
     }
 
-    setSelectedCourseIds([selectedCourse.id, ...completedCourses.map(c => c.id)]);
-    setPendingCourseContext(selectedCourse);
+    setSelectedCourseIds([course.id]);
+    setPendingCourseContext(course);
 
     sendMessageMutation.mutate({
       message: contextMessage,
-      courseContext: selectedCourse,
+      courseContext: course,
     });
 
     toast({
-      title: "Starting AI Chat",
-      description: `${selectedCourse.code} - ${selectedCourse.title}`,
+      title: "Course info sent to AI Assistant",
+      description: `${course.code} - ${course.title}`,
+    });
+  };
+
+  const handleToggleTaken = (courseId: string, isTaken: boolean) => {
+    setTakenCourseIds((prev) => {
+      if (isTaken) {
+        return [...prev, courseId];
+      } else {
+        return prev.filter(id => id !== courseId);
+      }
     });
   };
 
@@ -223,6 +216,8 @@ export default function HomePage() {
           courses={courses}
           onCourseClick={handleCourseClick}
           selectedCourseIds={selectedCourseIds}
+          takenCourseIds={takenCourseIds}
+          onToggleTaken={handleToggleTaken}
         />
       </main>
 
@@ -231,14 +226,6 @@ export default function HomePage() {
         messages={messages}
         isLoading={sendMessageMutation.isPending}
         pendingCourseContext={pendingCourseContext}
-      />
-
-      <CourseContextDialog
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-        selectedCourse={selectedCourseForDialog}
-        allCourses={courses}
-        onSubmit={handleDialogSubmit}
       />
     </div>
   );
