@@ -150,12 +150,16 @@ export default function HomePage() {
   };
 
   const handleAskAI = (course: Course) => {
+    // Filter out "Choose a course" placeholder entries
+    const filterChoiceCourses = (courses: Course[]) =>
+      courses.filter(c => !c.title.includes("Choose a course"));
+
     // Build message with student's major and course lists
-    const takenCoursesList = studentProfile.takenCourses
+    const takenCoursesList = filterChoiceCourses(studentProfile.takenCourses)
       .map(c => `${c.code}: ${c.title}`)
       .join("\n");
     
-    const neededCourses = studentProfile.plannedCourses.filter(
+    const neededCourses = filterChoiceCourses(studentProfile.plannedCourses).filter(
       c => !studentProfile.takenCourses.some(t => t.id === c.id)
     );
     const neededCoursesList = neededCourses
@@ -163,6 +167,9 @@ export default function HomePage() {
       .join("\n");
 
     let message = `I'm a ${studentProfile.major} student.\n\nCourses I've taken:\n${takenCoursesList || "None yet"}\n\nCourses I need to take:\n${neededCoursesList}`;
+
+    // Set pending context to auto-open chatbot
+    setPendingCourseContext(course);
 
     sendMessageMutation.mutate({
       message,
