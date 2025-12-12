@@ -74,7 +74,8 @@ export function ChatbotWidget({
         <Button
           size="icon"
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl hover:scale-105 transition-transform duration-200 z-50"
+          style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 50 }}
+          className="h-14 w-14 rounded-full shadow-xl hover:scale-105 transition-transform duration-200"
           data-testid="button-open-chatbot"
           aria-label="Open AI Course Assistant"
         >
@@ -85,8 +86,9 @@ export function ChatbotWidget({
       {/* Chatbot Panel - Expanded State */}
       {isOpen && (
         <div
+          style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 50 }}
           className={cn(
-            "fixed bottom-6 right-6 w-96 h-[600px] bg-card border border-card-border rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50",
+            "w-96 h-[600px] bg-card border border-card-border rounded-2xl shadow-2xl flex flex-col overflow-hidden",
             "transition-all duration-300 ease-in-out",
             "max-sm:w-[calc(100vw-1.5rem)] max-sm:h-[calc(100vh-1.5rem)] max-sm:bottom-3 max-sm:right-3"
           )}
