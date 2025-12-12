@@ -12,6 +12,7 @@ interface ChatbotWidgetProps {
   messages: ChatMessage[];
   isLoading: boolean;
   pendingCourseContext?: Course | null;
+  studentMajor?: string;
 }
 
 export function ChatbotWidget({
@@ -19,6 +20,7 @@ export function ChatbotWidget({
   messages,
   isLoading,
   pendingCourseContext,
+  studentMajor,
 }: ChatbotWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -113,11 +115,11 @@ export function ChatbotWidget({
             </div>
           </div>
 
-          {/* Course Context Badge */}
-          {pendingCourseContext && (
+          {/* Student Major Badge */}
+          {studentMajor && (
             <div className="px-4 py-2 bg-accent border-b border-border">
-              <Badge variant="secondary" className="text-xs" data-testid="badge-course-context">
-                Context: {pendingCourseContext.code} - {pendingCourseContext.title}
+              <Badge variant="secondary" className="text-xs" data-testid="badge-student-major">
+                Major: {studentMajor}
               </Badge>
             </div>
           )}

@@ -44,6 +44,17 @@ export default function HomePage() {
     }
   }, [chatHistory]);
 
+  // Initialize student profile with program data
+  useEffect(() => {
+    if (programData) {
+      setStudentProfile(prev => ({
+        ...prev,
+        major: programData.program.name,
+        plannedCourses: programData.courses,
+      }));
+    }
+  }, [programData]);
+
   // Send message mutation
   const sendMessageMutation = useMutation({
     mutationFn: async ({
@@ -289,6 +300,7 @@ export default function HomePage() {
         messages={messages}
         isLoading={sendMessageMutation.isPending}
         pendingCourseContext={pendingCourseContext}
+        studentMajor={programData?.program.name}
       />
 
       <CourseDetailModal
