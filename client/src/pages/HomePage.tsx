@@ -171,6 +171,26 @@ export default function HomePage() {
     await sendMessageMutation.mutateAsync({ message, courseContext });
   };
 
+  const handleExportChatHistory = () => {
+    if (!sessionId) return;
+    window.location.href = `/api/export/chat/${sessionId}`;
+    toast({
+      title: "Chat history exported",
+      description: "Your chat conversation has been downloaded as a JSON file",
+    });
+  };
+
+  const handleExportCoursePlan = () => {
+    if (!programData) return;
+    const courseIds = takenCourseIds.join(',');
+    const url = `/api/export/courses/${sessionId}?courseIds=${courseIds}`;
+    window.location.href = url;
+    toast({
+      title: "Course plan exported",
+      description: "Your course plan has been downloaded as an HTML file. You can print it as a PDF.",
+    });
+  };
+
   if (isProgramLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -198,7 +218,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gray-50">
       <header className="sticky top-0 z-20 bg-white border-b-2 border-primary shadow-md">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-start justify-between gap-6">
+          <div className="flex items-start justify-between gap-6 mb-4">
             <div className="flex-1">
               <h1 className="text-3xl font-bold text-primary mb-2" data-testid="text-program-name">
                 {program.name}
@@ -213,6 +233,22 @@ export default function HomePage() {
                 {program.totalUnits}
               </p>
             </div>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={handleExportCoursePlan}
+              className="px-3 py-1 text-sm bg-primary text-white rounded hover:bg-primary/90 transition"
+              data-testid="button-export-course-plan"
+            >
+              Download Course Plan
+            </button>
+            <button
+              onClick={handleExportChatHistory}
+              className="px-3 py-1 text-sm bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+              data-testid="button-export-chat"
+            >
+              Download Chat History
+            </button>
           </div>
         </div>
       </header>
