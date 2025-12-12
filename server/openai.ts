@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import type { Course } from "@shared/schema";
+import type { Course, StudentProfile } from "@shared/schema";
 
 // the newest OpenAI model is "gpt-5" which was released August 7, 2025. do not change this unless explicitly requested by the user
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -7,7 +7,8 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 export async function getChatbotResponse(
   message: string,
   conversationHistory: { role: "user" | "assistant"; content: string }[],
-  courseContext?: Course
+  courseContext?: Course,
+  studentProfile?: StudentProfile
 ): Promise<string> {
   try {
     // Check if API key is available
@@ -17,6 +18,37 @@ export async function getChatbotResponse(
 
     // Build context-aware system message
     let systemMessage = `You are an AI Course Assistant helping students with their academic program pathway. You provide helpful, accurate information about courses, prerequisites, degree requirements, and academic planning. Be concise but informative.`;
+
+    // Add student profile context
+    if (studentProfile) {
+      systemMessage += `\n\nStudent Information:`;
+      if (studentProfile.name) {
+        systemMessage += `\n- Name: ${studentProfile.name}`;
+      }
+      if (studentProfile.major) {
+        systemMessage += `\n- Major: ${studentProfile.major}`;
+      }
+      if (studentProfile.academicGoals) {
+        systemMessage += `\n- Academic Goals: ${studentProfile.academicGoals}`;
+      }
+      if (studentProfile.transferGoal) {
+        systemMessage += `\n- Transfer Goal: ${studentProfile.transferGoal}`;
+      }
+      
+      if (studentProfile.takenCourses.length > 0) {
+        const takenCoursesList = studentProfile.takenCourses.map(c => `${c.code}: ${c.title}`).join(", ");
+        systemMessage += `\n- Courses Completed: ${takenCoursesList}`;
+      }
+      
+      if (studentProfile.plannedCourses.length > 0) {
+        const plannedCoursesList = studentProfile.plannedCourses.map(c => `${c.code}: ${c.title}`).join(", ");
+        systemMessage += `\n- Planned Courses: ${plannedCoursesList}`;
+      }
+      
+      if (Object.keys(studentProfile.collectedInfo).length > 0) {
+        systemMessage += `\n- Additional Info: ${Object.entries(studentProfile.collectedInfo).map(([key, val]) => `${key}: ${val}`).join(", ")}`;
+      }
+    }
 
     if (courseContext) {
       systemMessage += `\n\nCurrent Course Context:\n- Code: ${courseContext.code}\n- Title: ${courseContext.title}\n- Units: ${courseContext.units}\n- Description: ${courseContext.description || "N/A"}`;

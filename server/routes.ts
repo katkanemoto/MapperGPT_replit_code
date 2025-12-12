@@ -213,7 +213,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // POST /api/chat - Send message and get AI response
   app.post("/api/chat", async (req, res) => {
     try {
-      const { sessionId, message, courseContext } = req.body;
+      const { sessionId, message, courseContext, studentProfile } = req.body;
 
       if (!sessionId || !message) {
         return res.status(400).json({ error: "Missing required fields" });
@@ -240,7 +240,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const aiResponse = await getChatbotResponse(
         message,
         conversationHistory,
-        courseContext as Course | undefined
+        courseContext as Course | undefined,
+        studentProfile as any
       );
 
       // Check if response is an error/fallback message

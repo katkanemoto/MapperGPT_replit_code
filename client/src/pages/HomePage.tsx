@@ -6,7 +6,7 @@ import { CourseLegend } from "@/components/CourseLegend";
 import { CourseDetailModal } from "@/components/CourseDetailModal";
 import { useToast } from "@/hooks/use-toast";
 import { queryClient, apiRequest } from "@/lib/queryClient";
-import type { Program, Course, ChatMessage } from "@shared/schema";
+import type { Program, Course, ChatMessage, StudentProfile } from "@shared/schema";
 
 export default function HomePage() {
   const { toast } = useToast();
@@ -17,6 +17,11 @@ export default function HomePage() {
   const [takenCourseIds, setTakenCourseIds] = useState<string[]>([]);
   const [courseDetailOpen, setCourseDetailOpen] = useState(false);
   const [selectedCourseForDetail, setSelectedCourseForDetail] = useState<Course | null>(null);
+  const [studentProfile, setStudentProfile] = useState<StudentProfile>({
+    takenCourses: [],
+    plannedCourses: [],
+    collectedInfo: {},
+  });
 
   // Fetch program data with courses
   const { data: programData, isLoading: isProgramLoading } = useQuery<{
@@ -52,6 +57,7 @@ export default function HomePage() {
         sessionId,
         message,
         courseContext,
+        studentProfile,
       });
       return response as unknown as { reply: string; isError?: boolean };
     },
@@ -165,6 +171,19 @@ export default function HomePage() {
         return prev.filter(id => id !== courseId);
       }
     });
+
+    // Update student profile with taken courses
+    if (programData) {
+      const course = programData.courses.find(c => c.id === courseId);
+      if (course) {
+        setStudentProfile(prev => ({
+          ...prev,
+          takenCourses: isTaken
+            ? [...prev.takenCourses, course]
+            : prev.takenCourses.filter(c => c.id !== courseId),
+        }));
+      }
+    }
   };
 
   const handleSendMessage = async (message: string, courseContext?: Course) => {

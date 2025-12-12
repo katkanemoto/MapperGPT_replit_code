@@ -65,3 +65,16 @@ export type InsertChatMessage = z.infer<typeof insertChatMessageSchema>;
 export type CourseWithContext = Course & {
   isInConversation?: boolean;
 };
+
+// Student Profile - tracks student info and courses for better AI context
+export interface StudentProfile {
+  name?: string;
+  major?: string;
+  academicGoals?: string;
+  transferGoal?: string;
+  takenCourses: Course[];
+  plannedCourses: Course[];
+  collectedInfo: {
+    [key: string]: string; // Any other info gleaned from conversation
+  };
+}
