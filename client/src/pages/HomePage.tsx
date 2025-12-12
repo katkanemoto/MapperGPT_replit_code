@@ -150,31 +150,17 @@ export default function HomePage() {
   };
 
   const handleAskAI = (course: Course) => {
-    // Add the clicked course to taken courses
-    setStudentProfile(prev => {
-      const alreadyTaken = prev.takenCourses.some(c => c.id === course.id);
-      return {
-        ...prev,
-        takenCourses: alreadyTaken ? prev.takenCourses : [...prev.takenCourses, course],
-      };
-    });
-
-    // Filter out "Choose a course" placeholder entries (but only from choice group descriptions)
+    // Filter out "Choose a course" placeholder entries (choice groups)
     const filterChoiceCourses = (courses: Course[]) =>
       courses.filter(c => !c.isChoice);
 
-    // Use updated student profile for the message
-    const updatedTaken = studentProfile.takenCourses.some(c => c.id === course.id)
-      ? studentProfile.takenCourses
-      : [...studentProfile.takenCourses, course];
-
     // Build message with student's major and course lists
-    const takenCoursesList = filterChoiceCourses(updatedTaken)
+    const takenCoursesList = filterChoiceCourses(studentProfile.takenCourses)
       .map(c => `${c.code}: ${c.title}`)
       .join("\n");
     
     const neededCourses = filterChoiceCourses(studentProfile.plannedCourses).filter(
-      c => !updatedTaken.some(t => t.id === c.id)
+      c => !studentProfile.takenCourses.some(t => t.id === c.id)
     );
     const neededCoursesList = neededCourses
       .map(c => `${c.code}: ${c.title}`)
