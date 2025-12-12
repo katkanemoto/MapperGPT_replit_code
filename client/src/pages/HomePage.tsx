@@ -150,9 +150,19 @@ export default function HomePage() {
   };
 
   const handleAskAI = (course: Course) => {
-    // Send a simple message asking about the course
-    // The AI will have access to all student profile info (major, courses taken, etc)
-    const message = `Can you tell me more about ${course.code}: ${course.title} and how it fits into my program?`;
+    // Build message with student's major and course lists
+    const takenCoursesList = studentProfile.takenCourses
+      .map(c => `${c.code}: ${c.title}`)
+      .join("\n");
+    
+    const neededCourses = studentProfile.plannedCourses.filter(
+      c => !studentProfile.takenCourses.some(t => t.id === c.id)
+    );
+    const neededCoursesList = neededCourses
+      .map(c => `${c.code}: ${c.title}`)
+      .join("\n");
+
+    let message = `I'm a ${studentProfile.major} student.\n\nCourses I've taken:\n${takenCoursesList || "None yet"}\n\nCourses I need to take:\n${neededCoursesList}`;
 
     sendMessageMutation.mutate({
       message,
@@ -160,8 +170,8 @@ export default function HomePage() {
     });
 
     toast({
-      title: "Question sent to AI Assistant",
-      description: `Asked about ${course.code}`,
+      title: "Course planning info sent to AI",
+      description: `Sharing your ${studentProfile.major} program details`,
     });
   };
 
