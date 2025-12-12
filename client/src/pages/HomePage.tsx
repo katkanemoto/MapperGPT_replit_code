@@ -150,27 +150,18 @@ export default function HomePage() {
   };
 
   const handleAskAI = (course: Course) => {
-    // Build context message including taken courses
-    const takenCourses = programData?.courses.filter(c => takenCourseIds.includes(c.id)) || [];
-    const takenCoursesList = takenCourses.map(c => c.code).join(", ");
-    
-    let contextMessage = `I'd like to know more about ${course.code}: ${course.title}.`;
-    
-    if (takenCoursesList) {
-      contextMessage += `\n\nCourses I've taken: ${takenCoursesList}`;
-    }
-
-    setSelectedCourseIds([course.id]);
-    setPendingCourseContext(course);
+    // Send a simple message asking about the course
+    // The AI will have access to all student profile info (major, courses taken, etc)
+    const message = `Can you tell me more about ${course.code}: ${course.title} and how it fits into my program?`;
 
     sendMessageMutation.mutate({
-      message: contextMessage,
+      message,
       courseContext: course,
     });
 
     toast({
-      title: "Course info sent to AI Assistant",
-      description: `${course.code} - ${course.title}`,
+      title: "Question sent to AI Assistant",
+      description: `Asked about ${course.code}`,
     });
   };
 
